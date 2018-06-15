@@ -10,6 +10,7 @@
 ###   ..... 
 
 db: conf
+	install -m 644 $(TOP)/template/raritan-pdu-*.template  $(E3_MODULE_SRC_PATH)/snmpApp/Db/
 	$(QUIET) $(E3_MODULE_MAKE_CMDS) db
 
 

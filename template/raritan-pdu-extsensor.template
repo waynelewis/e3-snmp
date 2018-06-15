@@ -1,0 +1,32 @@
+
+# record(calc, "$(P)ExtSensor$(EXT_SENSOR_ID)-Temp1-RB")
+# {
+#     field(DESC, "External Sensor $(EXT_SENSOR_ID) Temp1 ")
+#     field(INPA, "$(P)ExtSensor$(EXT_SENSOR_ID)-Temp1-RB_ CPP")
+#     field(INPB, "$(P)ExtSensor$(EXT_SENSOR_ID)-Temp1-DD_ NPP")
+#     field(CALC, "A * 10^(-B)")
+#     field( EGU, "degreeC")
+    
+# }
+
+record(ai, "$(P)ExtSensor$(EXT_SENSOR_ID)-Temp1-RB_")
+{
+    field(DESC, "External Sensor $(EXT_SENSOR_ID) Temp1")
+    field(DTYP, "Snmp")
+    field(SCAN, ".2 second")
+    field(PREC, "3")
+    field(INP, "@$(HOST) public %(M)measurementsExternalSensorValue.$(EXT_SENSOR_ID).1 INTEGER: 100")
+}
+
+
+# record(ai, "$(P)ExtSensor$(EXT_SENSOR_ID)-Temp1-DD_")
+# {
+#     field(DESC, "External Sensor $(EXT_SENSOR_ID) Temp1 Decimal Digits")
+#     field(DTYP, "Snmp")
+#     field(PREC, "3")
+#     field(DTYP, "SNMP Read")
+#     field(OIDS, "@$(HOST) guru %(MIB_P)externalSensorDecimalDigits.$(EXT_SENSOR_ID).1 Float: 100")
+#     field(PINI, "YES")
+# }
+
+
