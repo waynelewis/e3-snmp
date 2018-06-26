@@ -11,19 +11,23 @@ epicsEnvSet(R, "Pdu")
 epicsEnvSet("IOC",  "$(P):$(R)")
 epicsEnvSet("IOCST", "$(IOC):IocStats")
 
-#dbLoadRecords("iocAdminSoft.db","IOC=${IOCST}")
 
-epicsEnvSet("MIBDIRS", "+$(TOP)/mibs")
+
+#dbLoadRecords("iocAdminSoft.db","IOC=${IOCST}")
+devSnmpSetSnmpVersion("10.0.6.58","SNMP_VERSION_2c")
+
+epicsEnvSet("MIBDIRS", "+$(TOP)/../mibs")
 # MIB file Prefix
 epicsEnvSet("M", "PDU2-MIB::")
 
-#dbLoadRecords("db/snmpv2-mib.db",          "P=$(IOC):, HOST=10.0.6.58, COM=public, V2C=SNMP_VERSION_2c")
-#dbLoadRecords("db/raritan-pdu-info.db",    "P=$(IOC):, HOST=10.0.6.58, COM=public, V2C=SNMP_VERSION_2c")
-#dbLoadRecords("db/raritan-pdu-inlet.db",   "P=$(IOC):, HOST=10.0.6.58, COM=public, V2C=SNMP_VERSION_2c")
-dbLoadRecords("raritan-pdu-extsensor.db", "P=$(IOC):, HOST=10.0.6.58, EXT_SENSOR_ID=1")
-devSnmpSetDebug(2)
+dbLoadRecords("$(TOP)/../template/raritan-pdu-info.template"        "P=$(IOC):, HOST=10.0.6.58")
+dbLoadRecords("$(TOP)/../template/raritan-pdu-inlet.template",      "P=$(IOC):, HOST=10.0.6.58")
+dbLoadRecords("$(TOP)/../template/raritan-pdu-extsensor.template" , "P=$(IOC):, HOST=10.0.6.58, EXT_SENSOR_ID=1")
+
+#devSnmpSetParam("DebugLevel",100)
+
 iocInit()
 
-#dbl > "$(TOP)/$(IOC)-$(SYS)_PVs.list"
+dbl > "$(TOP)/$(IOC)_PVs.list"
 
 
