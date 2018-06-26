@@ -1,6 +1,6 @@
 ## cmds
 
-require snmp,1.0.0.1
+require snmp,1.0.0
 require iocStats,1856ef5
 #require autosave,5.9.0
 
@@ -14,9 +14,10 @@ epicsEnvSet("IOCST", "$(IOC):IocStats")
 
 dbLoadRecords("iocAdminSoft.db","IOC=${IOCST}")
 
+epicsEnvSet("MIBDIRS", "+$(TOP)/../mibs")
+
 devSnmpSetSnmpVersion("10.0.6.58","SNMP_VERSION_2c")
 
-epicsEnvSet("MIBDIRS", "+$(TOP)/../mibs")
 # MIB file Prefix
 #epicsEnvSet("M", "PDU2-MIB::")
 epicsEnvSet("SNMP_USER", "public")

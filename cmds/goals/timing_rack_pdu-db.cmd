@@ -17,12 +17,10 @@ dbLoadRecords("iocAdminSoft.db","IOC=${IOCST}")
 epicsEnvSet("TimingRackPDU", "10.4.8.111")
 
 epicsEnvSet("MIBDIRS", "+$(TOP)/../mibs")
-epicsEnvSet("DB_TOP", "$(TOP)/../template/")
-
 
 devSnmpSetSnmpVersion("$(TimingRackPDU)","SNMP_VERSION_2c")
 
-dbLoadTemplate("$(DB_TOP)/raritan-PX3-5260R-ess.substitutions", "PREFIX=$(IOC):, PDU_IP=$(TimingRackPDU)")
+dbLoadTemplate("raritan-PX3-5260R-ess.db", "PREFIX=$(IOC):, PDU_IP=$(TimingRackPDU)")
 
 #devSnmpSetParam("DebugLevel",100)
 

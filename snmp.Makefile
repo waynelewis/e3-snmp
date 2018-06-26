@@ -53,6 +53,7 @@ USR_CFLAGS   += $(shell $(PERL) $(where_am_I)$(APPSRC)/getNetSNMPversion.pl)
 USR_CPPFLAGS += $(shell $(PERL) $(where_am_I)$(APPSRC)/getNetSNMPversion.pl)
 
 TEMPLATES += $(wildcard $(APPDB)/*.db)
+TEMPLATES += $(wildcard $(APPDB)/*.template)
 
 SOURCES   += $(APPSRC)/snmpRegister.cpp
 SOURCES   += $(APPSRC)/snmpSessShow.c
@@ -73,7 +74,8 @@ USR_DBFLAGS += -I $(EPICS_BASE)/db
 USR_DBFLAGS += -I $(APPDB)
 
 SUBS=$(wildcard $(APPDB)/*.substitutions)
-TMPS=$(wildcard $(APPDB)/*.template)
+#TMPS=$(wildcard $(APPDB)/*.template)
+TMPS=
 
 db: $(SUBS) $(TMPS)
 

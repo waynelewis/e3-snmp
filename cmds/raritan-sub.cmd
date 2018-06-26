@@ -1,6 +1,6 @@
 ## cmds
 
-require snmp,1.0.0.1
+require snmp,1.0.0
 require iocStats,1856ef5
 #require autosave,5.9.0
 
@@ -15,11 +15,10 @@ epicsEnvSet("IOCST", "$(IOC):IocStats")
 dbLoadRecords("iocAdminSoft.db","IOC=${IOCST}")
 
 epicsEnvSet("PDU1", "10.0.6.58")
-
-devSnmpSetSnmpVersion("$(PDU1)","SNMP_VERSION_2c")
-
 epicsEnvSet("MIBDIRS", "+$(TOP)/../mibs")
 epicsEnvSet("DB_TOP", "$(TOP)/../template/")
+
+devSnmpSetSnmpVersion("$(PDU1)","SNMP_VERSION_2c")
 
 dbLoadTemplate("$(DB_TOP)/raritan-PX3-5190R-ess.substitutions",        "PREFIX=$(IOC):, PDU_IP=$(PDU1)")
 
