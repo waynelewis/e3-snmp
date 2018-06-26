@@ -1,4 +1,4 @@
-# Set SCAN 5 second for the Inlet information.
+# Set SCAN 2 second for the Inlet information.
 # It should be enough data which we would like to
 # monitor
 # 
@@ -6,7 +6,7 @@ record(bo, "$(P)InletUpdate1-Cmd")
 {
     field(DESC, "Update1 Inlet Readbacks")
     field(PINI, "YES")
-    field(SCAN, "5 second")
+    field(SCAN, "2 second")
     field(ZNAM, "Update")
     field(ONAM, "update")
     field(FLNK, "$(P)InletUpdate1:1-Fout_")
