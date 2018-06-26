@@ -1,12 +1,14 @@
-# Inlet information should be enough in every 10 seconds
-#
+# Set SCAN 5 second for the Inlet information.
+# It should be enough data which we would like to
+# monitor
+# 
 record(bo, "$(P)InletUpdate1-Cmd")
 {
-    field(DESC, "Update Inlet Readbacks")
+    field(DESC, "Update1 Inlet Readbacks")
     field(PINI, "YES")
     field(SCAN, "5 second")
-    field(ZNAM, "Revert")
-    field(ONAM, "revert")
+    field(ZNAM, "Update")
+    field(ONAM, "update")
     field(FLNK, "$(P)InletUpdate1:1-Fout_")
 }
 
@@ -25,9 +27,9 @@ record(fanout, "$(P)InletUpdate1:1-Fout_")
 # when IOC is started
 record(bo, "$(P)InletUpdate2-Cmd")
 {
-    field(DESC, "Update Inlet Readbacks")
-    field(ZNAM, "Revert")
-    field(ONAM, "revert")
+    field(DESC, "Update2 Inlet Readbacks")
+    field(ZNAM, "Update")
+    field(ONAM, "update")
     field(FLNK, "$(P)InletUpdate2:1-Fout_")
     field(HIGH, "2")
     field( VAL, "1")
@@ -45,9 +47,6 @@ record(fanout, "$(P)InletUpdate2:1-Fout_")
     field(LNK6, "$(P)Inlet-ActiveEnergy-DD_")
     field(LNK7, "$(P)Inlet-Frequency-DD_")
 }
-
-
-
 
 # SNMP connection 
 # rmsVoltage
@@ -69,7 +68,7 @@ record(ai, "$(P)Inlet-RMSVoltage-RB_")
 {
     field(DESC, "Inlet RMS Raw Voltage")
     field(DTYP, "Snmp")
-    field(INP, "@$(HOST) public PDU2-MIB::measurementsInletSensorValue.1.1.rmsVoltage Gauge32: 100")
+    field( INP, "@$(HOST) $(USER) %(M)measurementsInletSensorValue.1.1.rmsVoltage Gauge32: 100")
 }
 
 
@@ -77,7 +76,7 @@ record(longin, "$(P)Inlet-RMSVoltage-DD_")
 {
     field(DESC, "Inlet RMSVoltage Decimal Digits")
     field(DTYP, "Snmp")
-    field(INP, "@$(HOST) public %(M)inletSensorDecimalDigits.1.1.rmsVoltage Gauge32: 100")
+    field( INP, "@$(HOST) $(USER) %(M)inletSensorDecimalDigits.1.1.rmsVoltage Gauge32: 100")
 }
 
 
@@ -98,7 +97,7 @@ record(ai, "$(P)Inlet-RMSCurrent-RB_")
 {
     field(DESC, "Inlet RMS Raw Current")
     field(DTYP, "Snmp")
-    field(INP, "@$(HOST) public %(M)measurementsInletSensorValue.1.1.rmsCurrent Gauge32: 100")
+    field( INP, "@$(HOST) $(USER) %(M)measurementsInletSensorValue.1.1.rmsCurrent Gauge32: 100")
 }
 
 
@@ -106,7 +105,7 @@ record(longin, "$(P)Inlet-RMSCurrent-DD_")
 {
     field(DESC, "Inlet RMSCurrent Decimal Digits")
     field(DTYP, "Snmp")
-    field(INP, "@$(HOST) public %(M)inletSensorDecimalDigits.1.1.rmsCurrent Gauge32: 100")
+    field( INP, "@$(HOST) $(USER) %(M)inletSensorDecimalDigits.1.1.rmsCurrent Gauge32: 100")
 }
 
 
@@ -125,7 +124,7 @@ record(ai, "$(P)Inlet-ActivePower-RB_")
 {
     field(DESC, "Inlet RMS Raw Current")
     field(DTYP, "Snmp")
-    field(INP, "@$(HOST) public %(M)measurementsInletSensorValue.1.1.activePower Gauge32: 100")
+    field( INP, "@$(HOST) $(USER) %(M)measurementsInletSensorValue.1.1.activePower Gauge32: 100")
 }
 
 
@@ -133,7 +132,7 @@ record(longin, "$(P)Inlet-ActivePower-DD_")
 {
     field(DESC, "Inlet ActivePower Decimal Digits")
     field(DTYP, "Snmp")
-    field(INP, "@$(HOST) public %(M)inletSensorDecimalDigits.1.1.activePower Gauge32: 100")
+    field( INP, "@$(HOST) $(USER) %(M)inletSensorDecimalDigits.1.1.activePower Gauge32: 100")
 }
 
 
@@ -153,7 +152,7 @@ record(ai, "$(P)Inlet-ApparantPower-RB_")
 {
     field(DESC, "Inlet Apparant Power")
     field(DTYP, "Snmp")
-    field(INP, "@$(HOST) public %(M)measurementsInletSensorValue.1.1.apparentPower Gauge32: 100")
+    field( INP, "@$(HOST) $(USER) %(M)measurementsInletSensorValue.1.1.apparentPower Gauge32: 100")
 }
 
 
@@ -161,7 +160,7 @@ record(longin, "$(P)Inlet-ApparantPower-DD_")
 {
     field(DESC, "Inlet Apparant Power")
     field(DTYP, "Snmp")
-    field(INP, "@$(HOST) public %(M)inletSensorDecimalDigits.1.1.apparentPower Gauge32: 100")
+    field( INP, "@$(HOST) $(USER) %(M)inletSensorDecimalDigits.1.1.apparentPower Gauge32: 100")
 }
 
 
@@ -180,8 +179,7 @@ record(ai, "$(P)Inlet-PowerFactor-RB_")
 {
     field(DESC, "Inlet Power Factor")
     field(DTYP, "Snmp")
-    field(INP, "@$(HOST) public %(M)measurementsInletSensorValue.1.1.powerFactor Gauge32: 100")
-#    field(FLNK, "$(P)Inlet-PowerFactor-RB")
+    field( INP, "@$(HOST) $(USER) %(M)measurementsInletSensorValue.1.1.powerFactor Gauge32: 100")
 }
 
 
@@ -189,7 +187,7 @@ record(longin, "$(P)Inlet-PowerFactor-DD_")
 {
     field(DESC, "Inlet Power Factor")
     field(DTYP, "Snmp")
-    field(INP, "@$(HOST) public %(M)inletSensorDecimalDigits.1.1.powerFactor Gauge32: 100")
+    field( INP, "@$(HOST) $(USER) %(M)inletSensorDecimalDigits.1.1.powerFactor Gauge32: 100")
 }
 
 
@@ -201,7 +199,7 @@ record(calc, "$(P)Inlet-ActiveEnergy-RB")
     field(INPA, "$(P)Inlet-ActiveEnergy-RB_ CPP")
     field(INPB, "$(P)Inlet-ActiveEnergy-DD_ NPP")
     field(CALC, "A * 10^(-B)")
-    field(EGU,  "Wh")
+    field( EGU,  "Wh")
 }
 
 
@@ -210,8 +208,7 @@ record(ai, "$(P)Inlet-ActiveEnergy-RB_")
 {
     field(DESC, "Inlet Active Energy")
     field(DTYP, "Snmp")
-    field(INP, "@$(HOST) public %(M)measurementsInletSensorValue.1.1.activeEnergy Gauge32: 100")
-#    field(FLNK, "$(P)Inlet-ActiveEnergy-RB")
+    field( INP, "@$(HOST) $(USER) %(M)measurementsInletSensorValue.1.1.activeEnergy Gauge32: 100")
 }
 
 
@@ -219,9 +216,7 @@ record(longin, "$(P)Inlet-ActiveEnergy-DD_")
 {
     field(DESC, "Inlet Active Energy")
     field(DTYP, "Snmp")
-    field(INP, "@$(HOST) public %(M)inletSensorDecimalDigits.1.1.activeEnergy Gauge32: 100")
-    field(FLNK, "$(P)Inlet-ActiveEnergy-RB")
-#    field(PINI, "YES")
+    field( INP, "@$(HOST) $(USER) %(M)inletSensorDecimalDigits.1.1.activeEnergy Gauge32: 100")
 }
 
 
@@ -241,7 +236,7 @@ record(ai, "$(P)Inlet-Frequency-RB_")
 {
     field(DESC, "Inlet Active Energy")
     field(DTYP, "Snmp")
-    field(INP, "@$(HOST) public %(M)measurementsInletSensorValue.1.1.frequency Gauge32: 100")
+    field( INP, "@$(HOST) $(USER) %(M)measurementsInletSensorValue.1.1.frequency Gauge32: 100")
 }
 
 
@@ -249,7 +244,7 @@ record(longin, "$(P)Inlet-Frequency-DD_")
 {
     field(DESC, "Inlet Active Energy")
     field(DTYP, "Snmp")
-    field(INP, "@$(HOST) public %(M)inletSensorDecimalDigits.1.1.frequency Gauge32: 100")
+    field( INP, "@$(HOST) $(USER) %(M)inletSensorDecimalDigits.1.1.frequency Gauge32: 100")
 }
 
 

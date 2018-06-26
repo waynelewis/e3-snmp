@@ -19,10 +19,12 @@ devSnmpSetSnmpVersion("10.0.6.58","SNMP_VERSION_2c")
 epicsEnvSet("MIBDIRS", "+$(TOP)/../mibs")
 # MIB file Prefix
 epicsEnvSet("M", "PDU2-MIB::")
+epicsEnvSet("RARITAN_USER", "public")
+epicsEnvSet("PDU1", "10.0.6.58")
 
-dbLoadRecords("$(TOP)/../template/raritan-pdu-info.template"        "P=$(IOC):, HOST=10.0.6.58")
-dbLoadRecords("$(TOP)/../template/raritan-pdu-inlet.template",      "P=$(IOC):, HOST=10.0.6.58")
-dbLoadRecords("$(TOP)/../template/raritan-pdu-extsensor.template" , "P=$(IOC):, HOST=10.0.6.58, EXT_SENSOR_ID=1")
+dbLoadRecords("$(TOP)/../template/raritan-pdu-info.template"        "P=$(IOC):, USER=$(RARITAN_USER), HOST=$(PDU1)")
+dbLoadRecords("$(TOP)/../template/raritan-pdu-inlet.template",      "P=$(IOC):, USER=$(RARITAN_USER), HOST=$(PDU1)")
+dbLoadRecords("$(TOP)/../template/raritan-pdu-extsensor.template" , "P=$(IOC):, USER=$(RARITAN_USER), HOST=$(PDU1), EXT_SENSOR_ID=1")
 
 #devSnmpSetParam("DebugLevel",100)
 
