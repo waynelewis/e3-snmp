@@ -18,7 +18,7 @@ devSnmpSetSnmpVersion("10.0.6.58","SNMP_VERSION_2c")
 
 epicsEnvSet("MIBDIRS", "+$(TOP)/../mibs")
 # MIB file Prefix
-epicsEnvSet("M", "PDU2-MIB::")
+#epicsEnvSet("M", "PDU2-MIB::")
 epicsEnvSet("SNMP_USER", "public")
 epicsEnvSet("USER_R", "$(SNMP_USER)")
 epicsEnvSet("USER_W", "guru")

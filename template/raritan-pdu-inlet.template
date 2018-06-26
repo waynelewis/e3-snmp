@@ -68,7 +68,7 @@ record(ai, "$(P)Inlet-RMSVoltage-RB_")
 {
     field(DESC, "Inlet RMS Raw Voltage")
     field(DTYP, "Snmp")
-    field( INP, "@$(HOST) $(USER) %(M)measurementsInletSensorValue.1.1.rmsVoltage Gauge32: 100")
+    field( INP, "@$(HOST) $(USER) PDU2-MIB::measurementsInletSensorValue.1.1.rmsVoltage Gauge32: 100")
 }
 
 
@@ -76,7 +76,7 @@ record(longin, "$(P)Inlet-RMSVoltage-DD_")
 {
     field(DESC, "Inlet RMSVoltage Decimal Digits")
     field(DTYP, "Snmp")
-    field( INP, "@$(HOST) $(USER) %(M)inletSensorDecimalDigits.1.1.rmsVoltage Gauge32: 100")
+    field( INP, "@$(HOST) $(USER) PDU2-MIB::inletSensorDecimalDigits.1.1.rmsVoltage Gauge32: 100")
 }
 
 
@@ -97,7 +97,7 @@ record(ai, "$(P)Inlet-RMSCurrent-RB_")
 {
     field(DESC, "Inlet RMS Raw Current")
     field(DTYP, "Snmp")
-    field( INP, "@$(HOST) $(USER) %(M)measurementsInletSensorValue.1.1.rmsCurrent Gauge32: 100")
+    field( INP, "@$(HOST) $(USER) PDU2-MIB::measurementsInletSensorValue.1.1.rmsCurrent Gauge32: 100")
 }
 
 
@@ -105,7 +105,7 @@ record(longin, "$(P)Inlet-RMSCurrent-DD_")
 {
     field(DESC, "Inlet RMSCurrent Decimal Digits")
     field(DTYP, "Snmp")
-    field( INP, "@$(HOST) $(USER) %(M)inletSensorDecimalDigits.1.1.rmsCurrent Gauge32: 100")
+    field( INP, "@$(HOST) $(USER) PDU2-MIB::inletSensorDecimalDigits.1.1.rmsCurrent Gauge32: 100")
 }
 
 
@@ -124,7 +124,7 @@ record(ai, "$(P)Inlet-ActivePower-RB_")
 {
     field(DESC, "Inlet RMS Raw Current")
     field(DTYP, "Snmp")
-    field( INP, "@$(HOST) $(USER) %(M)measurementsInletSensorValue.1.1.activePower Gauge32: 100")
+    field( INP, "@$(HOST) $(USER) PDU2-MIB::measurementsInletSensorValue.1.1.activePower Gauge32: 100")
 }
 
 
@@ -132,7 +132,7 @@ record(longin, "$(P)Inlet-ActivePower-DD_")
 {
     field(DESC, "Inlet ActivePower Decimal Digits")
     field(DTYP, "Snmp")
-    field( INP, "@$(HOST) $(USER) %(M)inletSensorDecimalDigits.1.1.activePower Gauge32: 100")
+    field( INP, "@$(HOST) $(USER) PDU2-MIB::inletSensorDecimalDigits.1.1.activePower Gauge32: 100")
 }
 
 
@@ -152,7 +152,7 @@ record(ai, "$(P)Inlet-ApparantPower-RB_")
 {
     field(DESC, "Inlet Apparant Power")
     field(DTYP, "Snmp")
-    field( INP, "@$(HOST) $(USER) %(M)measurementsInletSensorValue.1.1.apparentPower Gauge32: 100")
+    field( INP, "@$(HOST) $(USER) PDU2-MIB::measurementsInletSensorValue.1.1.apparentPower Gauge32: 100")
 }
 
 
@@ -160,7 +160,7 @@ record(longin, "$(P)Inlet-ApparantPower-DD_")
 {
     field(DESC, "Inlet Apparant Power")
     field(DTYP, "Snmp")
-    field( INP, "@$(HOST) $(USER) %(M)inletSensorDecimalDigits.1.1.apparentPower Gauge32: 100")
+    field( INP, "@$(HOST) $(USER) PDU2-MIB::inletSensorDecimalDigits.1.1.apparentPower Gauge32: 100")
 }
 
 
@@ -179,7 +179,7 @@ record(ai, "$(P)Inlet-PowerFactor-RB_")
 {
     field(DESC, "Inlet Power Factor")
     field(DTYP, "Snmp")
-    field( INP, "@$(HOST) $(USER) %(M)measurementsInletSensorValue.1.1.powerFactor Gauge32: 100")
+    field( INP, "@$(HOST) $(USER) PDU2-MIB::measurementsInletSensorValue.1.1.powerFactor Gauge32: 100")
 }
 
 
@@ -187,7 +187,7 @@ record(longin, "$(P)Inlet-PowerFactor-DD_")
 {
     field(DESC, "Inlet Power Factor")
     field(DTYP, "Snmp")
-    field( INP, "@$(HOST) $(USER) %(M)inletSensorDecimalDigits.1.1.powerFactor Gauge32: 100")
+    field( INP, "@$(HOST) $(USER) PDU2-MIB::inletSensorDecimalDigits.1.1.powerFactor Gauge32: 100")
 }
 
 
@@ -208,7 +208,7 @@ record(ai, "$(P)Inlet-ActiveEnergy-RB_")
 {
     field(DESC, "Inlet Active Energy")
     field(DTYP, "Snmp")
-    field( INP, "@$(HOST) $(USER) %(M)measurementsInletSensorValue.1.1.activeEnergy Gauge32: 100")
+    field( INP, "@$(HOST) $(USER) PDU2-MIB::measurementsInletSensorValue.1.1.activeEnergy Gauge32: 100")
 }
 
 
@@ -216,7 +216,7 @@ record(longin, "$(P)Inlet-ActiveEnergy-DD_")
 {
     field(DESC, "Inlet Active Energy")
     field(DTYP, "Snmp")
-    field( INP, "@$(HOST) $(USER) %(M)inletSensorDecimalDigits.1.1.activeEnergy Gauge32: 100")
+    field( INP, "@$(HOST) $(USER) PDU2-MIB::inletSensorDecimalDigits.1.1.activeEnergy Gauge32: 100")
 }
 
 
@@ -236,7 +236,7 @@ record(ai, "$(P)Inlet-Frequency-RB_")
 {
     field(DESC, "Inlet Active Energy")
     field(DTYP, "Snmp")
-    field( INP, "@$(HOST) $(USER) %(M)measurementsInletSensorValue.1.1.frequency Gauge32: 100")
+    field( INP, "@$(HOST) $(USER) PDU2-MIB::measurementsInletSensorValue.1.1.frequency Gauge32: 100")
 }
 
 
@@ -244,7 +244,7 @@ record(longin, "$(P)Inlet-Frequency-DD_")
 {
     field(DESC, "Inlet Active Energy")
     field(DTYP, "Snmp")
-    field( INP, "@$(HOST) $(USER) %(M)inletSensorDecimalDigits.1.1.frequency Gauge32: 100")
+    field( INP, "@$(HOST) $(USER) PDU2-MIB::inletSensorDecimalDigits.1.1.frequency Gauge32: 100")
 }
 
 

@@ -21,20 +21,20 @@ record(stringin, "$(P)SN-RB")
 {
     field(DESC, "Serial Number")
     field(DTYP, "Snmp")
-    field( INP, "@$(HOST) $(USER) %(M)pduSerialNumber.1 STRING: 40")
+    field( INP, "@$(HOST) $(USER) PDU2-MIB::pduSerialNumber.1 STRING: 40")
 }
 
 record(stringin, "$(P)FW-RB")
 {
     field(DESC, "FirmWare Version")
     field(DTYP, "Snmp")
-    field( INP, "@$(HOST) $(USER) %(M)boardFirmwareVersion.1.mainController.1  STRING: 40")
+    field( INP, "@$(HOST) $(USER) PDU2-MIB::boardFirmwareVersion.1.mainController.1  STRING: 40")
 }
 
 record(stringin, "$(P)MODEL-RB")
 {
     field(DESC, "PDU Model")
     field(DTYP, "Snmp")
-    field( INP, "@$(HOST) $(USER) %(M)pduModel.1 STRING: 40")
+    field( INP, "@$(HOST) $(USER) PDU2-MIB::pduModel.1 STRING: 40")
  
 }

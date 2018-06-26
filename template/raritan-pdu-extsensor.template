@@ -38,14 +38,14 @@ record(ai, "$(P)ExtSensor$(EXT_SENSOR_ID)-Temp1-RB_")
     field(DTYP, "Snmp")
     field(SCAN, ".2 second")
     field(PREC, "3")
-    field(INP, "@$(HOST) $(USER) %(M)measurementsExternalSensorValue.$(EXT_SENSOR_ID).1 INTEGER: 100")
+    field(INP, "@$(HOST) $(USER) PDU2-MIB::measurementsExternalSensorValue.$(EXT_SENSOR_ID).1 INTEGER: 100")
 }
 
 #PDU2-MIB::externalSensorDecimalDigits.1.1 = Gauge32: 1
 record(longin, "$(P)ExtSensor$(EXT_SENSOR_ID)-Temp1-DD_")
 {
     field(DTYP, "Snmp")
-    field(INP, "@$(HOST) $(USER) %(M)externalSensorDecimalDigits.$(EXT_SENSOR_ID).1 Gauge32: 100")
+    field(INP, "@$(HOST) $(USER) PDU2-MIB::externalSensorDecimalDigits.$(EXT_SENSOR_ID).1 Gauge32: 100")
 }
 
 
@@ -66,13 +66,13 @@ record(ai, "$(P)ExtSensor$(EXT_SENSOR_ID)-Temp2-RB_")
     field(DTYP, "Snmp")
     field(SCAN, ".2 second")
     field(PREC, "3")
-    field(INP, "@$(HOST) $(USER) %(M)measurementsExternalSensorValue.$(EXT_SENSOR_ID).2 INTEGER: 100")
+    field(INP, "@$(HOST) $(USER) PDU2-MIB::measurementsExternalSensorValue.$(EXT_SENSOR_ID).2 INTEGER: 100")
 }
 
 record(longin, "$(P)ExtSensor$(EXT_SENSOR_ID)-Temp2-DD_")
 {
     field(DTYP, "Snmp")
-    field(INP, "@$(HOST) $(USER) %(M)externalSensorDecimalDigits.$(EXT_SENSOR_ID).2 Gauge32: 100")
+    field(INP, "@$(HOST) $(USER) PDU2-MIB::externalSensorDecimalDigits.$(EXT_SENSOR_ID).2 Gauge32: 100")
 }
 
 
@@ -93,13 +93,13 @@ record(ai, "$(P)ExtSensor$(EXT_SENSOR_ID)-Temp3-RB_")
     field(DTYP, "Snmp")
     field(SCAN, ".2 second")
     field(PREC, "3")
-    field(INP, "@$(HOST) $(USER) %(M)measurementsExternalSensorValue.$(EXT_SENSOR_ID).3 INTEGER: 100")
+    field(INP, "@$(HOST) $(USER) PDU2-MIB::measurementsExternalSensorValue.$(EXT_SENSOR_ID).3 INTEGER: 100")
 }
 
 record(longin, "$(P)ExtSensor$(EXT_SENSOR_ID)-Temp3-DD_")
 {
     field(DTYP, "Snmp")
-    field(INP, "@$(HOST) $(USER) %(M)externalSensorDecimalDigits.$(EXT_SENSOR_ID).3 Gauge32: 100")
+    field(INP, "@$(HOST) $(USER) PDU2-MIB::externalSensorDecimalDigits.$(EXT_SENSOR_ID).3 Gauge32: 100")
 }
 
 
@@ -120,12 +120,12 @@ record(ai, "$(P)ExtSensor$(EXT_SENSOR_ID)-Hum-RB_")
     field(DTYP, "Snmp")
     field(SCAN, "1 second")
     field(PREC, "3")
-    field(INP, "@$(HOST) $(USER) %(M)measurementsExternalSensorValue.$(EXT_SENSOR_ID).4 INTEGER: 100")
+    field(INP, "@$(HOST) $(USER) PDU2-MIB::measurementsExternalSensorValue.$(EXT_SENSOR_ID).4 INTEGER: 100")
 }
 
 
 record(longin, "$(P)ExtSensor$(EXT_SENSOR_ID)-Hum-DD_")
 {
     field(DTYP, "Snmp")
-    field(INP, "@$(HOST) $(USER) %(M)externalSensorDecimalDigits.$(EXT_SENSOR_ID).4 Gauge32: 100")
+    field(INP, "@$(HOST) $(USER) PDU2-MIB::externalSensorDecimalDigits.$(EXT_SENSOR_ID).4 Gauge32: 100")
 }

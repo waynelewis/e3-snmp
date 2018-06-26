@@ -68,7 +68,7 @@ record(ai, "$(P)Outlet$(OUTLET_ID)-RMSVoltage-RB_")
 {
     field(DESC, "Outlet$(OUTLET_ID) RMS Raw Voltage")
     field(DTYP, "Snmp")
-    field( INP, "@$(HOST) $(USER) %(M)measurementsOutletSensorValue.1.$(OUTLET_ID).rmsVoltage Gauge32: 100")
+    field( INP, "@$(HOST) $(USER) PDU2-MIB::measurementsOutletSensorValue.1.$(OUTLET_ID).rmsVoltage Gauge32: 100")
 }
 
 
@@ -76,7 +76,7 @@ record(longin, "$(P)Outlet$(OUTLET_ID)-RMSVoltage-DD_")
 {
     field(DESC, "Outlet$(OUTLET_ID) RMSVoltage Decimal Digits")
     field(DTYP, "Snmp")
-    field( INP, "@$(HOST) $(USER) %(M)outletSensorDecimalDigits.1.$(OUTLET_ID).rmsVoltage Gauge32: 100")
+    field( INP, "@$(HOST) $(USER) PDU2-MIB::outletSensorDecimalDigits.1.$(OUTLET_ID).rmsVoltage Gauge32: 100")
 }
 
 
@@ -97,7 +97,7 @@ record(ai, "$(P)Outlet$(OUTLET_ID)-RMSCurrent-RB_")
 {
     field(DESC, "Outlet$(OUTLET_ID) RMS Raw Current")
     field(DTYP, "Snmp")
-    field( INP, "@$(HOST) $(USER) %(M)measurementsOutletSensorValue.1.$(OUTLET_ID).rmsCurrent Gauge32: 100")
+    field( INP, "@$(HOST) $(USER) PDU2-MIB::measurementsOutletSensorValue.1.$(OUTLET_ID).rmsCurrent Gauge32: 100")
 }
 
 
@@ -105,7 +105,7 @@ record(longin, "$(P)Outlet$(OUTLET_ID)-RMSCurrent-DD_")
 {
     field(DESC, "Outlet$(OUTLET_ID) RMSCurrent Decimal Digits")
     field(DTYP, "Snmp")
-    field( INP, "@$(HOST) $(USER) %(M)outletSensorDecimalDigits.1.$(OUTLET_ID).rmsCurrent Gauge32: 100")
+    field( INP, "@$(HOST) $(USER) PDU2-MIB::outletSensorDecimalDigits.1.$(OUTLET_ID).rmsCurrent Gauge32: 100")
 }
 
 
@@ -124,7 +124,7 @@ record(ai, "$(P)Outlet$(OUTLET_ID)-ActivePower-RB_")
 {
     field(DESC, "Outlet$(OUTLET_ID) RMS Raw Current")
     field(DTYP, "Snmp")
-    field( INP, "@$(HOST) $(USER) %(M)measurementsOutletSensorValue.1.$(OUTLET_ID).activePower Gauge32: 100")
+    field( INP, "@$(HOST) $(USER) PDU2-MIB::measurementsOutletSensorValue.1.$(OUTLET_ID).activePower Gauge32: 100")
 }
 
 
@@ -132,7 +132,7 @@ record(longin, "$(P)Outlet$(OUTLET_ID)-ActivePower-DD_")
 {
     field(DESC, "Outlet$(OUTLET_ID) ActivePower Decimal Digits")
     field(DTYP, "Snmp")
-    field( INP, "@$(HOST) $(USER) %(M)outletSensorDecimalDigits.1.$(OUTLET_ID).activePower Gauge32: 100")
+    field( INP, "@$(HOST) $(USER) PDU2-MIB::outletSensorDecimalDigits.1.$(OUTLET_ID).activePower Gauge32: 100")
 }
 
 
@@ -152,7 +152,7 @@ record(ai, "$(P)Outlet$(OUTLET_ID)-ApparantPower-RB_")
 {
     field(DESC, "Outlet$(OUTLET_ID) Apparant Power")
     field(DTYP, "Snmp")
-    field( INP, "@$(HOST) $(USER) %(M)measurementsOutletSensorValue.1.$(OUTLET_ID).apparentPower Gauge32: 100")
+    field( INP, "@$(HOST) $(USER) PDU2-MIB::measurementsOutletSensorValue.1.$(OUTLET_ID).apparentPower Gauge32: 100")
 }
 
 
@@ -160,7 +160,7 @@ record(longin, "$(P)Outlet$(OUTLET_ID)-ApparantPower-DD_")
 {
     field(DESC, "Outlet$(OUTLET_ID) Apparant Power")
     field(DTYP, "Snmp")
-    field( INP, "@$(HOST) $(USER) %(M)outletSensorDecimalDigits.1.$(OUTLET_ID).apparentPower Gauge32: 100")
+    field( INP, "@$(HOST) $(USER) PDU2-MIB::outletSensorDecimalDigits.1.$(OUTLET_ID).apparentPower Gauge32: 100")
 }
 
 
@@ -179,7 +179,7 @@ record(ai, "$(P)Outlet$(OUTLET_ID)-PowerFactor-RB_")
 {
     field(DESC, "Outlet$(OUTLET_ID) Power Factor")
     field(DTYP, "Snmp")
-    field( INP, "@$(HOST) $(USER) %(M)measurementsOutletSensorValue.1.$(OUTLET_ID).powerFactor Gauge32: 100")
+    field( INP, "@$(HOST) $(USER) PDU2-MIB::measurementsOutletSensorValue.1.$(OUTLET_ID).powerFactor Gauge32: 100")
 }
 
 
@@ -187,7 +187,7 @@ record(longin, "$(P)Outlet$(OUTLET_ID)-PowerFactor-DD_")
 {
     field(DESC, "Outlet$(OUTLET_ID) Power Factor")
     field(DTYP, "Snmp")
-    field( INP, "@$(HOST) $(USER) %(M)outletSensorDecimalDigits.1.$(OUTLET_ID).powerFactor Gauge32: 100")
+    field( INP, "@$(HOST) $(USER) PDU2-MIB::outletSensorDecimalDigits.1.$(OUTLET_ID).powerFactor Gauge32: 100")
 }
 
 
@@ -208,7 +208,7 @@ record(ai, "$(P)Outlet$(OUTLET_ID)-ActiveEnergy-RB_")
 {
     field(DESC, "Outlet$(OUTLET_ID) Active Energy")
     field(DTYP, "Snmp")
-    field( INP, "@$(HOST) $(USER) %(M)measurementsOutletSensorValue.1.$(OUTLET_ID).activeEnergy Gauge32: 100")
+    field( INP, "@$(HOST) $(USER) PDU2-MIB::measurementsOutletSensorValue.1.$(OUTLET_ID).activeEnergy Gauge32: 100")
 }
 
 
@@ -216,7 +216,7 @@ record(longin, "$(P)Outlet$(OUTLET_ID)-ActiveEnergy-DD_")
 {
     field(DESC, "Outlet$(OUTLET_ID) Active Energy")
     field(DTYP, "Snmp")
-    field( INP, "@$(HOST) $(USER) %(M)outletSensorDecimalDigits.1.$(OUTLET_ID).activeEnergy Gauge32: 100")
+    field( INP, "@$(HOST) $(USER) PDU2-MIB::outletSensorDecimalDigits.1.$(OUTLET_ID).activeEnergy Gauge32: 100")
 }
 
 
@@ -236,7 +236,7 @@ record(ai, "$(P)Outlet$(OUTLET_ID)-Frequency-RB_")
 {
     field(DESC, "Outlet$(OUTLET_ID) Active Energy")
     field(DTYP, "Snmp")
-    field( INP, "@$(HOST) $(USER) %(M)measurementsOutletSensorValue.1.$(OUTLET_ID).frequency Gauge32: 100")
+    field( INP, "@$(HOST) $(USER) PDU2-MIB::measurementsOutletSensorValue.1.$(OUTLET_ID).frequency Gauge32: 100")
 }
 
 
@@ -244,5 +244,5 @@ record(longin, "$(P)Outlet$(OUTLET_ID)-Frequency-DD_")
 {
     field(DESC, "Outlet$(OUTLET_ID) Active Energy")
     field(DTYP, "Snmp")
-    field( INP, "@$(HOST) $(USER) %(M)outletSensorDecimalDigits.1.$(OUTLET_ID).frequency Gauge32: 100")
+    field( INP, "@$(HOST) $(USER) PDU2-MIB::outletSensorDecimalDigits.1.$(OUTLET_ID).frequency Gauge32: 100")
 }
