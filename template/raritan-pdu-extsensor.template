@@ -107,20 +107,20 @@ record(longin, "$(P)ExtSensor$(EXT_SENSOR_ID)-Temp3-DD_")
 }
 
 
-record(calc, "$(P)ExtSensor$(EXT_SENSOR_ID)-Hum1-RB")
+record(calc, "$(P)ExtSensor$(EXT_SENSOR_ID)-Hum-RB")
 {
-    field(DESC, "External Sensor $(EXT_SENSOR_ID) Hum1 ")
-    field(INPA, "$(P)ExtSensor$(EXT_SENSOR_ID)-Hum1-RB_ CPP")
-    field(INPB, "$(P)ExtSensor$(EXT_SENSOR_ID)-Hum1-DD_ NPP")
+    field(DESC, "External Sensor $(EXT_SENSOR_ID) Hum ")
+    field(INPA, "$(P)ExtSensor$(EXT_SENSOR_ID)-Hum-RB_ CPP")
+    field(INPB, "$(P)ExtSensor$(EXT_SENSOR_ID)-Hum-DD_ NPP")
     field(CALC, "A * 10^(-B)")
     field( EGU, "degreeC")
     
 }
 
 
-record(ai, "$(P)ExtSensor$(EXT_SENSOR_ID)-Hum1-RB_")
+record(ai, "$(P)ExtSensor$(EXT_SENSOR_ID)-Hum-RB_")
 {
-    field(DESC, "External Sensor $(EXT_SENSOR_ID) Hum1")
+    field(DESC, "External Sensor $(EXT_SENSOR_ID) Hum")
     field(DTYP, "Snmp")
     field(SCAN, "1 second")
     field(PREC, "3")
@@ -128,7 +128,7 @@ record(ai, "$(P)ExtSensor$(EXT_SENSOR_ID)-Hum1-RB_")
 }
 
 
-record(longin, "$(P)ExtSensor$(EXT_SENSOR_ID)-Hum1-DD_")
+record(longin, "$(P)ExtSensor$(EXT_SENSOR_ID)-Hum-DD_")
 {
     field(DTYP, "Snmp")
     field(INP, "@$(HOST) public %(M)externalSensorDecimalDigits.$(EXT_SENSOR_ID).4 Gauge32: 100")

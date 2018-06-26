@@ -7,13 +7,13 @@ require iocStats,1856ef5
 epicsEnvSet(TOP, "$(E3_CMD_TOP)")
 
 epicsEnvSet(P, "Raritan")
-epicsEnvSet(R, "Pdu")
-epicsEnvSet("IOC",  "$(P):$(R)")
+epicsEnvSet(R, "PDU")
+epicsEnvSet("IOC",  "$(P)-$(R)")
 epicsEnvSet("IOCST", "$(IOC):IocStats")
 
 
+dbLoadRecords("iocAdminSoft.db","IOC=${IOCST}")
 
-#dbLoadRecords("iocAdminSoft.db","IOC=${IOCST}")
 devSnmpSetSnmpVersion("10.0.6.58","SNMP_VERSION_2c")
 
 epicsEnvSet("MIBDIRS", "+$(TOP)/../mibs")
