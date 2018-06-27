@@ -47,8 +47,12 @@ pattern { P, USER, HOST, OUTLET_ID }
 { "$(PREFIX)", guru, "$(PDU_IP)", 12 }
 }
 
-file "$(DB_TOP)/raritan-pdu-extsensor.template" {
+
+file "$(DB_TOP)/raritan-pdu-extsensor-unit.template" {
 pattern { P, USER, HOST,  EXT_SENSOR_ID }
 { "$(PREFIX)", public, "$(PDU_IP)", 1 }
+{ "$(PREFIX)", public, "$(PDU_IP)", 2 }
+{ "$(PREFIX)", public, "$(PDU_IP)", 3 }
+{ "$(PREFIX)", public, "$(PDU_IP)", 4 }
 }
 

@@ -20,7 +20,7 @@ epicsEnvSet("DB_TOP", "$(TOP)/../template/")
 
 devSnmpSetSnmpVersion("$(PDU1)","SNMP_VERSION_2c")
 
-dbLoadTemplate("$(DB_TOP)/raritan-PX3-5190R-ess.substitutions",        "PREFIX=$(IOC):, PDU_IP=$(PDU1)")
+dbLoadTemplate("$(DB_TOP)/raritan-PX3-5190R-ess.substitutions", "PREFIX=$(IOC):, PDU_IP=$(PDU1)")
 
 #devSnmpSetParam("DebugLevel",100)
 
