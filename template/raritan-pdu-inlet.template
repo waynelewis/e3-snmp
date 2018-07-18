@@ -17,7 +17,7 @@ record(fanout, "$(P)InletUpdate1:1-Fout_")
     field(LNK1, "$(P)Inlet-RMSVoltage-RB_")
     field(LNK2, "$(P)Inlet-RMSCurrent-RB_")
     field(LNK3, "$(P)Inlet-ActivePower-RB_")
-    field(LNK4, "$(P)Inlet-ApparantPower-RB_")
+    field(LNK4, "$(P)Inlet-ApparentPower-RB_")
     field(LNK5, "$(P)Inlet-PowerFactor-RB_")
     field(LNK6, "$(P)Inlet-ActiveEnergy-RB_")
     field(LNK7, "$(P)Inlet-Frequency-RB_")
@@ -42,7 +42,7 @@ record(fanout, "$(P)InletUpdate2:1-Fout_")
     field(LNK1, "$(P)Inlet-RMSVoltage-DD_")
     field(LNK2, "$(P)Inlet-RMSCurrent-DD_")
     field(LNK3, "$(P)Inlet-ActivePower-DD_")
-    field(LNK4, "$(P)Inlet-ApparantPower-DD_")
+    field(LNK4, "$(P)Inlet-ApparentPower-DD_")
     field(LNK5, "$(P)Inlet-PowerFactor-DD_")
     field(LNK6, "$(P)Inlet-ActiveEnergy-DD_")
     field(LNK7, "$(P)Inlet-Frequency-DD_")
@@ -137,28 +137,28 @@ record(longin, "$(P)Inlet-ActivePower-DD_")
 
 
 
-# apparantPower
-record(calc, "$(P)Inlet-ApparantPower-RB")
+# apparentPower
+record(calc, "$(P)Inlet-ApparentPower-RB")
 {
-    field(DESC, "Inlet Apparant Power")
-    field(INPA, "$(P)Inlet-ApparantPower-RB_ CPP")
-    field(INPB, "$(P)Inlet-ApparantPower-DD_ NPP")
+    field(DESC, "Inlet Apparent Power")
+    field(INPA, "$(P)Inlet-ApparentPower-RB_ CPP")
+    field(INPB, "$(P)Inlet-ApparentPower-DD_ NPP")
     field(CALC, "A * 10^(-B)")
     field( EGU, "VA")
 }
 
 
-record(ai, "$(P)Inlet-ApparantPower-RB_")
+record(ai, "$(P)Inlet-ApparentPower-RB_")
 {
-    field(DESC, "Inlet Apparant Power")
+    field(DESC, "Inlet Apparent Power")
     field(DTYP, "Snmp")
     field( INP, "@$(HOST) $(USER) PDU2-MIB::measurementsInletSensorValue.1.1.apparentPower Gauge32: 100")
 }
 
 
-record(longin, "$(P)Inlet-ApparantPower-DD_")
+record(longin, "$(P)Inlet-ApparentPower-DD_")
 {
-    field(DESC, "Inlet Apparant Power")
+    field(DESC, "Inlet Apparent Power")
     field(DTYP, "Snmp")
     field( INP, "@$(HOST) $(USER) PDU2-MIB::inletSensorDecimalDigits.1.1.apparentPower Gauge32: 100")
 }

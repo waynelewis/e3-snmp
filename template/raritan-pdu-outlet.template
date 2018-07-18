@@ -17,7 +17,7 @@ record(fanout, "$(P)Outlet$(OUTLET_ID)Update1:1-Fout_")
     field(LNK1, "$(P)Outlet$(OUTLET_ID)-RMSVoltage-RB_")
     field(LNK2, "$(P)Outlet$(OUTLET_ID)-RMSCurrent-RB_")
     field(LNK3, "$(P)Outlet$(OUTLET_ID)-ActivePower-RB_")
-    field(LNK4, "$(P)Outlet$(OUTLET_ID)-ApparantPower-RB_")
+    field(LNK4, "$(P)Outlet$(OUTLET_ID)-ApparentPower-RB_")
     field(LNK5, "$(P)Outlet$(OUTLET_ID)-PowerFactor-RB_")
     field(LNK6, "$(P)Outlet$(OUTLET_ID)-ActiveEnergy-RB_")
     field(LNK7, "$(P)Outlet$(OUTLET_ID)-Frequency-RB_")
@@ -42,7 +42,7 @@ record(fanout, "$(P)Outlet$(OUTLET_ID)Update2:1-Fout_")
     field(LNK1, "$(P)Outlet$(OUTLET_ID)-RMSVoltage-DD_")
     field(LNK2, "$(P)Outlet$(OUTLET_ID)-RMSCurrent-DD_")
     field(LNK3, "$(P)Outlet$(OUTLET_ID)-ActivePower-DD_")
-    field(LNK4, "$(P)Outlet$(OUTLET_ID)-ApparantPower-DD_")
+    field(LNK4, "$(P)Outlet$(OUTLET_ID)-ApparentPower-DD_")
     field(LNK5, "$(P)Outlet$(OUTLET_ID)-PowerFactor-DD_")
     field(LNK6, "$(P)Outlet$(OUTLET_ID)-ActiveEnergy-DD_")
     field(LNK7, "$(P)Outlet$(OUTLET_ID)-Frequency-DD_")
@@ -138,27 +138,27 @@ record(longin, "$(P)Outlet$(OUTLET_ID)-ActivePower-DD_")
 
 
 # apparantPower
-record(calc, "$(P)Outlet$(OUTLET_ID)-ApparantPower-RB")
+record(calc, "$(P)Outlet$(OUTLET_ID)-ApparentPower-RB")
 {
-    field(DESC, "Outlet$(OUTLET_ID) Apparant Power")
-    field(INPA, "$(P)Outlet$(OUTLET_ID)-ApparantPower-RB_ CPP")
-    field(INPB, "$(P)Outlet$(OUTLET_ID)-ApparantPower-DD_ NPP")
+    field(DESC, "Outlet$(OUTLET_ID) Apparent Power")
+    field(INPA, "$(P)Outlet$(OUTLET_ID)-ApparentPower-RB_ CPP")
+    field(INPB, "$(P)Outlet$(OUTLET_ID)-ApparentPower-DD_ NPP")
     field(CALC, "A * 10^(-B)")
     field( EGU, "VA")
 }
 
 
-record(ai, "$(P)Outlet$(OUTLET_ID)-ApparantPower-RB_")
+record(ai, "$(P)Outlet$(OUTLET_ID)-ApparentPower-RB_")
 {
-    field(DESC, "Outlet$(OUTLET_ID) Apparant Power")
+    field(DESC, "Outlet$(OUTLET_ID) Apparent Power")
     field(DTYP, "Snmp")
     field( INP, "@$(HOST) $(USER) PDU2-MIB::measurementsOutletSensorValue.1.$(OUTLET_ID).apparentPower Gauge32: 100")
 }
 
 
-record(longin, "$(P)Outlet$(OUTLET_ID)-ApparantPower-DD_")
+record(longin, "$(P)Outlet$(OUTLET_ID)-ApparentPower-DD_")
 {
-    field(DESC, "Outlet$(OUTLET_ID) Apparant Power")
+    field(DESC, "Outlet$(OUTLET_ID) Apparent Power")
     field(DTYP, "Snmp")
     field( INP, "@$(HOST) $(USER) PDU2-MIB::outletSensorDecimalDigits.1.$(OUTLET_ID).apparentPower Gauge32: 100")
 }
