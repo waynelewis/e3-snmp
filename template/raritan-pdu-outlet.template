@@ -88,6 +88,7 @@ record(calc, "$(P)Outlet$(OUTLET_ID)-RMSCurrent-RB")
     field(INPB, "$(P)Outlet$(OUTLET_ID)-RMSCurrent-DD_ NPP")
     field(CALC, "A * 10^(-B)")
     field( EGU, "A")
+    field(PREC, "1")
     field(HIGH, "10.4")
     field(HIHI, "12.8")
 }
