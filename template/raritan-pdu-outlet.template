@@ -247,3 +247,13 @@ record(longin, "$(P)Outlet$(OUTLET_ID)-Frequency-DD_")
     field(DTYP, "Snmp")
     field( INP, "@$(HOST) $(USER) PDU2-MIB::outletSensorDecimalDigits.1.$(OUTLET_ID).frequency Gauge32: 100")
 }
+
+# Record to allow user to provide a description of the 
+# outlet function or service
+record(stringin, "$(P)Outlet$(OUTLET_ID)-Name-SP") 
+{
+    field(DESC, "Outlet$(OUTLET_ID) function")
+    field(VAL,  "Outlet $(OUTLET_ID)")
+
+    info(autosaveFields, "VAL")
+}
