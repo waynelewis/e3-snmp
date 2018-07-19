@@ -23,7 +23,7 @@ devSnmpSetSnmpVersion("10.4.0.121","SNMP_VERSION_2c")
 # MIB file Prefix
 epicsEnvSet("PDU1", "10.4.0.121")
 
-dbLoadTemplate("$(DB_TOP)/raritan-PX3-5190R-ess.substitutions", "PREFIX=$(IOC):, PDU_IP=$(PDU1)")
+dbLoadRecords("raritan-PX3-5190R-ess.db", "PREFIX=$(IOC):, PDU_IP=$(PDU1)")
 
 #devSnmpSetParam("DebugLevel",100)
 
@@ -35,7 +35,7 @@ save_restoreSet_DatedBackupFiles(1)             # optional
 system("install -m 777 -d $(AUTOSAVE_DIR)/$(IOC)/autosave/save")# optional, but if omitted, must ensure path exists, requires system module
 system("install -m 777 -d $(AUTOSAVE_DIR)/$(IOC)/autosave/req") # optional, but if omitted, must ensure path exists, requires system module
  
-set_savefile_path("/autosave","/save")    # optional, but recommended. Replace TOP macro as required
+set_savefile_path("$(AUTOSAVE_DIR)/$(IOC)/autosave","/save")    # optional, but recommended. Replace TOP macro as required
 set_requestfile_path("$(AUTOSAVE_DIR)/$(IOC)/autosave","/req")  # optional, but recommended. Replace TOP macro as required
  
 set_pass0_restoreFile("info_positions.sav")     # before record initialization
