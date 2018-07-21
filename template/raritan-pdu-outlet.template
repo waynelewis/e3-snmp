@@ -88,6 +88,7 @@ record(calc, "$(P)Outlet$(OUTLET_ID)-RMSCurrent-RB")
     field(INPB, "$(P)Outlet$(OUTLET_ID)-RMSCurrent-DD_ NPP")
     field(CALC, "A * 10^(-B)")
     field( EGU, "A")
+    field(PREC, "1")
     field(HIGH, "10.4")
     field(HIHI, "12.8")
 }
@@ -245,4 +246,14 @@ record(longin, "$(P)Outlet$(OUTLET_ID)-Frequency-DD_")
     field(DESC, "Outlet$(OUTLET_ID) Active Energy")
     field(DTYP, "Snmp")
     field( INP, "@$(HOST) $(USER) PDU2-MIB::outletSensorDecimalDigits.1.$(OUTLET_ID).frequency Gauge32: 100")
+}
+
+# Record to allow user to provide a description of the 
+# outlet function or service
+record(stringin, "$(P)Outlet$(OUTLET_ID)-Name-SP") 
+{
+    field(DESC, "Outlet$(OUTLET_ID) function")
+    field(VAL,  "Outlet $(OUTLET_ID)")
+
+    info(autosaveFields, "VAL")
 }
