@@ -21,6 +21,7 @@ record(fanout, "$(P)Outlet$(OUTLET_ID)Update1:1-Fout_")
     field(LNK5, "$(P)Outlet$(OUTLET_ID)-PowerFactor-RB_")
     field(LNK6, "$(P)Outlet$(OUTLET_ID)-ActiveEnergy-RB_")
     field(LNK7, "$(P)Outlet$(OUTLET_ID)-Frequency-RB_")
+    field(LNK8, "$(P)Outlet$(OUTLET_ID)-Name-RB")
 }
 
 # Decimal Digit should be needed to call one time
@@ -248,12 +249,14 @@ record(longin, "$(P)Outlet$(OUTLET_ID)-Frequency-DD_")
     field( INP, "@$(HOST) $(USER) PDU2-MIB::outletSensorDecimalDigits.1.$(OUTLET_ID).frequency Gauge32: 100")
 }
 
-# Record to allow user to provide a description of the 
-# outlet function or service
-record(stringin, "$(P)Outlet$(OUTLET_ID)-Name-SP") 
-{
-    field(DESC, "Outlet$(OUTLET_ID) function")
-    field(VAL,  "Outlet $(OUTLET_ID)")
+# # Record to allow user to provide a description of the 
+# # outlet function or service
+# record(stringin, "$(P)Outlet$(OUTLET_ID)-Name-SP") 
+# {
+#     field(DESC, "Outlet$(OUTLET_ID) function")
+#     field(VAL,  "Outlet $(OUTLET_ID)")
 
-    info(autosaveFields, "VAL")
-}
+#     info(autosaveFields, "VAL")
+# }
+
+

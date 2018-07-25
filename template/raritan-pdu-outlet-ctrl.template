@@ -78,3 +78,27 @@ record(longout, "$(P)Outlet$(OUTLET_ID)-SStateUpdate_")
     field(OMSL, "closed_loop")
     field( OUT, "$(P)Outlet$(OUTLET_ID)-SState-SET NPP")
 }
+
+
+record(stringout, "$(P)Outlet$(OUTLET_ID)-Name-SP")
+{
+    field(DESC, "Outlet$(OUTLET_ID) Name")
+    field(DTYP, "Snmp")
+    field( OUT, "@$(HOST) $(USER) PDU2-MIB::outletName.1.$(OUTLET_ID) STRING: 40")
+    info(autosaveFields, "VAL")
+}
+
+record(stringin, "$(P)Outlet$(OUTLET_ID)-Name-RB")
+{
+    field(DESC, "Outlet$(OUTLET_ID) Name")
+    field(DTYP, "Snmp")
+    field( INP, "@$(HOST) $(USER) PDU2-MIB::outletName.1.$(OUTLET_ID) STRING: 40")
+    field(FLNK, "$(P)Outlet$(OUTLET_ID)-Name-RB_")
+}
+
+record(stringout, "$(P)Outlet$(OUTLET_ID)-Name-RB_")
+{
+    field( DOL, "$(P)Outlet$(OUTLET_ID)-Name-RB NPP")
+    field(OMSL, "closed_loop")
+    field( OUT, "$(P)Outlet$(OUTLET_ID)-Name-SP NPP")
+}
