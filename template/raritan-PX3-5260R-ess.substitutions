@@ -5,17 +5,17 @@
 #  Firmware Version : 3.3.10.5-43736
 #
 #
-file "$(DB_TOP)/raritan-pdu-info.template" {
+file "raritan-pdu-info.template" {
 pattern { P, USER, HOST }
 { "$(PREFIX)", public, "$(PDU_IP)" }
 }
 
-file "$(DB_TOP)/raritan-pdu-inlet.template" {
+file "raritan-pdu-inlet.template" {
 pattern { P, USER, HOST }
 { "$(PREFIX)", public, "$(PDU_IP)" }
 }
 
-file "$(DB_TOP)/raritan-pdu-outlet.template" {
+file "raritan-pdu-outlet.template" {
 pattern { P, USER, HOST, OUTLET_ID }
 { "$(PREFIX)", public, "$(PDU_IP)", 1 }
 { "$(PREFIX)", public, "$(PDU_IP)", 2 }
@@ -31,7 +31,7 @@ pattern { P, USER, HOST, OUTLET_ID }
 { "$(PREFIX)", public, "$(PDU_IP)", 12 }
 }
 
-file "$(DB_TOP)/raritan-pdu-outlet-ctrl.template"  {
+file "raritan-pdu-outlet-ctrl.template"  {
 pattern { P, USER, HOST, OUTLET_ID }
 { "$(PREFIX)", guru, "$(PDU_IP)", 1 }
 { "$(PREFIX)", guru, "$(PDU_IP)", 2 }
@@ -48,7 +48,7 @@ pattern { P, USER, HOST, OUTLET_ID }
 }
 
 
-file "$(DB_TOP)/raritan-pdu-extsensor-unit.template" {
+file "raritan-pdu-extsensor-unit.template" {
 pattern { P, USER, HOST,  EXT_SENSOR_ID }
 { "$(PREFIX)", public, "$(PDU_IP)", 1 }
 { "$(PREFIX)", public, "$(PDU_IP)", 2 }

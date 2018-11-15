@@ -17,21 +17,14 @@
 # 
 # Author  : Jeong Han Lee
 # email   : han.lee@esss.se
-# Date    : Friday, June 15 11:46:43 CEST 2018
-# version : 0.0.1
+# Date    : Thursday, November 15 14:59:57 CET 2018
+# version : 0.0.2
 #
 
 where_am_I := $(dir $(abspath $(lastword $(MAKEFILE_LIST))))
 include $(E3_REQUIRE_TOOLS)/driver.makefile
-include $(where_am_I)/../configure/DECOUPLE_FLAGS
+include $(E3_REQUIRE_CONFIG)/DECOUPLE_FLAGS
 
-# If one would like to use the module dependency restrictly,
-# one should look at other modules makefile to add more
-# In most case, one should ignore the following lines:
-
-#ifneq ($(strip $(ASYN_DEP_VERSION)),)
-#asyn_VERSION=$(ASYN_DEP_VERSION)
-#endif
 
 ## Exclude linux-ppc64e6500
 EXCLUDE_ARCHS = linux-ppc64e6500
@@ -62,13 +55,6 @@ SOURCES   += $(APPSRC)/devSnmp.cpp
 DBDS      += $(APPSRC)/devSnmp.dbd
 
 
-## This RULE should be used in case of inflating DB files 
-## db rule is the default in RULES_DB, so add the empty one
-## Please look at e3-mrfioc2 for example.
-
-EPICS_BASE_HOST_BIN = $(EPICS_BASE)/bin/$(EPICS_HOST_ARCH)
-MSI = $(EPICS_BASE_HOST_BIN)/msi
-
 USR_DBFLAGS += -I . -I ..
 USR_DBFLAGS += -I $(EPICS_BASE)/db
 USR_DBFLAGS += -I $(APPDB)
@@ -82,8 +68,8 @@ db: $(SUBS) $(TMPS)
 $(SUBS):
 	@printf "Inflating database ... %44s >>> %40s \n" "$@" "$(basename $(@)).db"
 	@rm -f  $(basename $(@)).db.d  $(basename $(@)).db
-	@$(MSI) -D $(USR_DBFLAGS) -o $(basename $(@)).db -S $@  > $(basename $(@)).db.d
-	@$(MSI)    $(USR_DBFLAGS) -o $(basename $(@)).db -S $@
+	$(MSI) -D $(USR_DBFLAGS) -o $(basename $(@)).db -S $@ > $(basename $(@)).db.d
+	$(MSI)    $(USR_DBFLAGS) -o $(basename $(@)).db -S $@
 
 $(TMPS):
 	@printf "Inflating database ... %44s >>> %40s \n" "$@" "$(basename $(@)).db"
@@ -98,13 +84,6 @@ vlibs:
 
 .PHONY: vlibs
 
-# vlibs: $(VENDOR_LIBS)
-
-# $(VENDOR_LIBS):
-# 	$(QUIET) $(SUDO) install -m 555 -d $(E3_MODULES_VENDOR_LIBS_LOCATION)/
-# 	$(QUIET) $(SUDO) install -m 555 $@ $(E3_MODULES_VENDOR_LIBS_LOCATION)/
-
-# .PHONY: $(VENDOR_LIBS) vlibs
 
 
 
