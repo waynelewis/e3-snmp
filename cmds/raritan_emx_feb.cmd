@@ -1,5 +1,5 @@
 
-require snmp,1.0.0.2
+require snmp,dev
 require iocStats,1856ef5
 
 ###
@@ -18,7 +18,6 @@ epicsEnvSet("IOCSTATS_CMD_TOP", "$(TOP)/../e3-iocStats/cmds")
 epicsEnvSet("AUTOSAVE_CMD_TOP", "$(TOP)/../e3-autosave/cmds")
 
 
-
 epicsEnvSet(P, "Raritan")
 epicsEnvSet(R, "EMX")
 epicsEnvSet("IOC",  "$(P)-$(R)")
@@ -30,16 +29,17 @@ epicsEnvSet("USER_W", "guru")
 epicsEnvSet("EMX1", "172.16.60.30")
 epicsEnvSet("MIBDIRS", "+$(TOP)/../mibs")
 
-devSnmpSetSnmpVersion("$(EXM1)", "SNMP_VERSION_2c")
 
+iocshLoad("$(TOP)/iocsh/raritan_emx888.iocsh", "HOSTNAME=$(EMX1)")
 
+devSnmpSetParam("DebugLevel",4)
 
 ###
 ###
 ###>>
 ###>> IocStats
 ###>>
-iocshLoad "$(IOCSTATS_CMD_TOP)/iocStats.cmd" "IOC=$(IOC):IocStats"
+#iocshLoad "$(IOCSTATS_CMD_TOP)/iocStats.cmd" "IOC=$(IOC):IocStats"
 
 ###
 ###
@@ -51,6 +51,8 @@ dbLoadRecords("$(DB_TOP)/raritan-emx-info.template",             "P=$(IOC)-FEB:,
 
 dbLoadRecords("$(DB_TOP)/raritan-emx-lhx-unit.template" ,         "P=$(IOC)-FEB:, USER=$(USER_R), HOST=$(EMX1), LHX_ID=1")
 dbLoadRecords("$(DB_TOP)/raritan-emx-lhx-unit-ctrl.template" ,    "P=$(IOC)-FEB:, USER=$(USER_W), HOST=$(EMX1), LHX_ID=1")
+dbLoadRecords("$(DB_TOP)/raritan-emx-lhx-unit.template" ,         "P=$(IOC)-FEB:, USER=$(USER_R), HOST=$(EMX1), LHX_ID=5")
+dbLoadRecords("$(DB_TOP)/raritan-emx-lhx-unit-ctrl.template" ,    "P=$(IOC)-FEB:, USER=$(USER_W), HOST=$(EMX1), LHX_ID=5")
 
 dbLoadTemplate("$(DB_TOP)/raritan-emx-lhx-unit-sensors.template" , "PREF=$(IOC)-FEB:, HOST_IP=$(EMX1), LHX_UNIT=1")
 # dbLoadRecords("$(DB_TOP)/raritan-emx-lhx-unit-gsensors.template",  "P=$(IOC)-FEB:, LHX_ID=1")

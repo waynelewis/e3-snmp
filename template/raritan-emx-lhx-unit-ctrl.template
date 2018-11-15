@@ -1,54 +1,22 @@
+# ## operationalState
+# ## SYNTAX      OperationalStateEnumeration
+# ## MAX-ACCESS  read-write
+# ## devSnmp requests a periodic call by itself
+# ## so we have to think how to handel SP and RB
+# ## differently.
 
-
-## operationalState
-## SYNTAX      OperationalStateEnumeration
-## MAX-ACCESS  read-write
-record(longin, "$(P)LHX$(LHX_ID)-State-RB_")
-{
-    field(DESC, "SNMP channel")
-    field(SCAN, "1 second")
-    field(DTYP, "Snmp")
-    field( INP, "@$(HOST) $(USER) LHX-MIB::operationalState.$(LHX_ID) ( 100 i")
-}
-
-record(mbbi, "$(P)LHX$(LHX_ID)-State-RB")
-{
-    field(DTYP, "Soft Channel")
-    field( INP, "$(P)LHX$(LHX_ID)-State-RB_ CPP")
-    field(ZRST, "disconnected")
-    field(ZRVL, "0")
-    field(ONST, "offline")
-    field(ONVL, "1")
-    field(TWST, "online")
-    field(TWVL, "2")
-    field(THSV, "INVALID")
-    field(FRSV, "INVALID")
-    field(FVSV, "INVALID")
-    field(SXSV, "INVALID")
-    field(SVSV, "INVALID")
-    field(EISV, "INVALID")
-    field(NISV, "INVALID")
-    field(TESV, "INVALID")
-    field(ELSV, "INVALID")
-    field(TVSV, "INVALID")
-    field(TTSV, "INVALID")
-    field(FTSV, "INVALID")
-    field(FFSV, "INVALID")
-    field(UNSV, "INVALID")
-    field(FLNK, "$(P)LHX$(LHX_ID)-StateUpdate_")
-}
-
-record(longout, "$(P)LHX$(LHX_ID)-State-SP_")
+record(ao, "$(P)LHX$(LHX_ID)-State-SP_")
 {
     field(DESC, "SNMP channel")
     field(DTYP, "Snmp")
     field( OUT, "@$(HOST) $(USER) LHX-MIB::operationalState.$(LHX_ID) ( 100 i")
+    field(FLNK, "$(P)LHX$(LHX_ID)-StateUpdate_")
 }
 
 record(mbbo, "$(P)LHX$(LHX_ID)-State-SP")
 {
     field(DTYP, "Soft Channel")
-    field( OUT, "$(P)LHX$(LHX_ID)-State-SP_ PP")
+    field( OUT, "$(P)LHX$(LHX_ID)-State-SP_ PP CA")
     field(ZRST, "disconnected")
     field(ZRVL, "0")
     field(ONST, "offline")
@@ -72,13 +40,38 @@ record(mbbo, "$(P)LHX$(LHX_ID)-State-SP")
 }
 
 
-record(longout, "$(P)LHX$(LHX_ID)-StateUpdate_")
+record(ao, "$(P)LHX$(LHX_ID)-StateUpdate_")
 {
-    field( DOL, "$(P)LHX$(LHX_ID)-State-RB NPP")
+    field( DOL, "$(P)LHX$(LHX_ID)-State-SP_ NPP")
     field(OMSL, "closed_loop")
     field( OUT, "$(P)LHX$(LHX_ID)-State-SP NPP")
 }
 
+record(mbbi, "$(P)LHX$(LHX_ID)-State-RB")
+{
+    field(DTYP, "Soft Channel")
+    field( INP, "$(P)LHX$(LHX_ID)-StateUpdate_ CPP")
+    field(ZRST, "disconnected")
+    field(ZRVL, "0")
+    field(ONST, "offline")
+    field(ONVL, "1")
+    field(TWST, "online")
+    field(TWVL, "2")
+    field(THSV, "INVALID")
+    field(FRSV, "INVALID")
+    field(FVSV, "INVALID")
+    field(SXSV, "INVALID")
+    field(SVSV, "INVALID")
+    field(EISV, "INVALID")
+    field(NISV, "INVALID")
+    field(TESV, "INVALID")
+    field(ELSV, "INVALID")
+    field(TVSV, "INVALID")
+    field(TTSV, "INVALID")
+    field(FTSV, "INVALID")
+    field(FFSV, "INVALID")
+    field(UNSV, "INVALID")
+}
 
 
 ## setpointVentilators

@@ -1,4 +1,4 @@
-# Query current settings and one-time parameters (ID and SN)
+## Query current settings and one-time parameters (ID and SN)
 record(bo, "$(P)InfoUpdate-Cmd")
 {
     field(DESC, "Update setting readbacks")
@@ -36,5 +36,4 @@ record(stringin, "$(P)MODEL-RB")
     field(DESC, "Model Name")
     field(DTYP, "Snmp")
     field( INP, "@$(HOST) $(USER) EMD-MIB::model.0 STRING: 40")
- 
 }
