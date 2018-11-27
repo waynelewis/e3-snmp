@@ -22,6 +22,8 @@ record(stringin, "$(P)SN-RB")
     field(DESC, "Serial Number")
     field(DTYP, "Snmp")
     field( INP, "@$(HOST) $(USER) PDU2-MIB::pduSerialNumber.1 STRING: 40")
+
+    info(ip_addr, "$(HOST)")
 }
 
 record(stringin, "$(P)FW-RB")
@@ -29,6 +31,8 @@ record(stringin, "$(P)FW-RB")
     field(DESC, "FirmWare Version")
     field(DTYP, "Snmp")
     field( INP, "@$(HOST) $(USER) PDU2-MIB::boardFirmwareVersion.1.mainController.1  STRING: 40")
+
+    info(ip_addr, "$(HOST)")
 }
 
 record(stringin, "$(P)MODEL-RB")
@@ -36,5 +40,6 @@ record(stringin, "$(P)MODEL-RB")
     field(DESC, "PDU Model")
     field(DTYP, "Snmp")
     field( INP, "@$(HOST) $(USER) PDU2-MIB::pduModel.1 STRING: 40")
- 
+
+    info(ip_addr, "$(HOST)")
 }
