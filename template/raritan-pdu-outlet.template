@@ -63,6 +63,11 @@ record(calc, "$(P)Outlet$(OUTLET_ID)-RMSVoltage-RB")
     field(HIGH, "247")
     field(HIHI, "254")
     
+    info(rack,   "$(RACK)")
+    info(pdu,    "$(PDU)")
+    info(outlet, "$(OUTLET_ID)")
+    info(host,   "$(HOST)")
+    info(autosaveFields, "LOLO LOW HIGH HIHI LLSV LSV HSV HHSV")
 }
 
 record(ai, "$(P)Outlet$(OUTLET_ID)-RMSVoltage-RB_")
